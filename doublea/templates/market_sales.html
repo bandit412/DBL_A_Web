@@ -1,0 +1,17 @@
+{% extends "_layout.html" %}
+{% block content %}
+    <h1>Sales by Market</h1>
+    
+    <form method="POST" action="{{ url_for('marketsales.get_sales') }}">
+        {{ form.hidden_tag() }}
+        <div class="form-group">
+            <select name="market_select" id="market_select">
+                <option value="0">Select a Market</option>
+                {% for mkt in markets %}
+                    <option value="{{ mkt.marketsid }}">{{ mkt.market }}</option>
+                {% endfor%}
+            </select>
+            {{ form.submit(class="btn btn-outline-info" )}}
+        </div>
+    </form>
+{% endblock content %}

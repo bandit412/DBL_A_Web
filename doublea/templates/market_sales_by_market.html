@@ -1,0 +1,26 @@
+{% extends "_layout.html" %}
+{% block content %}
+    <h1>Update Selected Sale</h1>
+    
+    {% if sales %}
+        <p>Total Sales: {{ sales.total }}</p>
+        {% for sale in sales %}
+                <span class="spanbold">{{ sale.marketdate }}</span>
+                <div class="row">
+                    <div class="row">
+                        <div class="col-5">
+                            {{ sale.description }}
+                         </div>
+                        <div class="col-3 text-end">
+                            {{ sale.amount }}
+                        </div>
+                        <div class="col-4">
+                            <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{{ url_for('marketsales.update_marketsale', marketsales_id=sale.marketsalesid) }}">Update</a>
+                        </div>
+                    </div>
+                </div>
+  
+        {% endfor %}
+        
+    {% endif %}
+{% endblock content %}
