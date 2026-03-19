@@ -30,8 +30,8 @@ CREATE TABLE Transactions
 	StoreID			INT							NOT NULL
 		CONSTRAINT FK_Transactions_StoreID 		REFERENCES Store(StoreID),
 	Items			VARCHAR(250)				NOT NULL,	
-	Amount			MONEY						NOT NULL,
-	GST				MONEY						NOT NULL,
+	Amount			NUMERIC(8,2)				NOT NULL,
+	GST				NUMERIC(6,2)				NOT NULL,
 	PaymentID		INT							NOT NULL
 		CONSTRAINT FK_Transactions_PaymentID 	REFERENCES PaymentMethod(PaymentMethodId),
 	CONSTRAINT PK_TransactionsTransactionsID PRIMARY KEY(TransactionsID)
@@ -50,7 +50,7 @@ CREATE TABLE MarketSales
 	MarketID		INT							NOT NULL
 		CONSTRAINT FK_MarketSales_MarketID 		REFERENCES Markets(MarketsID),
 	MarketDate		DATE						NOT NULL,
-	Amount			MONEY						NOT NULL,
+	Amount			NUMERIC(6,2)				NOT NULL,
 	Description		VARCHAR(60)					NOT NULL,
 	MethodID		INT							NOT NULL
 		CONSTRAINT FK_MarketSales_PaymentID 	REFERENCES PaymentMethod(PaymentMethodID),
