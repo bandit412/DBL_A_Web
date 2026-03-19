@@ -1,0 +1,10 @@
+{% extends "_layout.html" %}
+{% block content %}
+    <h1>Payment Methods Management</h1>
+    <span class="spanbold">Payment Method</span>
+    {% for pm in payments %}
+        <div class="row">
+            {{ pm.methodname }}
+        </div>
+    {% endfor %}
+{% endblock content %}
