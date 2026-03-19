@@ -30,6 +30,10 @@
                             {% if current_user.is_authenticated %}
                                 <a class="nav-item nav-link" href="{{ url_for('marketsales.market_sales')}}">Sales</a>
                                 <a class="nav-item nav-link" href="{{ url_for('transactions.store_purchases')}}">Purchases</a>
+                                <a class="nav-item nav-link" href="{{ url_for('markets.market_management')}}">Markets</a>
+                                <a class="nav-item nav-link" href="{{ url_for('markets.new_market')}}">New Market</a>
+                                <a class="nav-item nav-link" href="{{ url_for('stores.store_management')}}">Stores</a>
+                                <a class="nav-item nav-link" href="{{ url_for('stores.new_store')}}">New Store</a>
                                 <a class="nav-item nav-link" href="{{ url_for('users.account') }}">Account</a>
                                 <a class="nav-item nav-link" href="{{ url_for('users.logout') }}">Logout</a>
                             {% else %}
