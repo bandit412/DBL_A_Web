@@ -1,0 +1,8 @@
+{% extends "_layout.html" %}
+{% block content %}
+    <div class="content-section">
+        <h1>Something went wrong (500)</h1>
+        <img class="article-img" src="{{ url_for('static', filename='img/500_Sad_Face.png') }}">
+        <p>We are experiencing trouble on our end. Please try again later.</p>
+    </div>
+{% endblock content %}

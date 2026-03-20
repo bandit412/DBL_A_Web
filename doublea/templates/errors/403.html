@@ -1,0 +1,8 @@
+{% extends "_layout.html" %}
+{% block content %}
+    <div class="content-section">
+        <h1>You do not have permission to do that. (403)</h1>
+        <img class="article-img" src="{{ url_for('static', filename='img/403_Sad_Face.png') }}">
+        <p>Please check your account and try again.</p>
+    </div>
+{% endblock content %}

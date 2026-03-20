@@ -26,15 +26,14 @@
                             <a class="nav-item nav-link" href="{{ url_for('main.about') }}">About</a>
                         </div>
                         <!-- Navbar Right Side -->
-                        <div class="navbar-nav">
+                        <div class="navbar-nav ms-auto mb-2 mb-lg-0">
                             {% if current_user.is_authenticated %}
                                 <a class="nav-item nav-link" href="{{ url_for('marketsales.market_sales')}}">Sales</a>
                                 <a class="nav-item nav-link" href="{{ url_for('transactions.store_purchases')}}">Purchases</a>
                                 <div class="btn-group dropend">
-                                    <button type="button" class="btn btn-primary dropdown-toggle bg-steel" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         Database Maintenance
-                                    </button>
-                                
+                                    </a>
                                     <ul class="dropdown-menu dropdown-menu-dark bg-steel">
                                         <li><a class="nav-item nav-link" href="{{ url_for('markets.market_management')}}">Markets</a></li>
                                         <li><a class="nav-item nav-link" href="{{ url_for('markets.new_market') }}">New Market</a></li>
