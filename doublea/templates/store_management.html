@@ -4,12 +4,7 @@
     <span class="spanbold">Store Name &amp; Loation</span>
     {% for st in stores %}
         <div class="row">
-            <div class="col-7">
-                {{ st.storename }}
-            </div>
-            <div class="col-5">
-                {{ st.storelocation }}
-            </div>
+                {{ st.storename }} ({{ st.storelocation }})
         </div>
     {% endfor %}
     {% for page_num in stores.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
