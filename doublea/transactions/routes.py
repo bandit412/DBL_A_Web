@@ -2,8 +2,8 @@ from flask import Blueprint, abort, flash, redirect, render_template, request, u
 from flask_login import current_user, login_required
 
 from doublea import db
-from doublea.models import Store, Transaction
-from doublea.transactions.forms import PurchaseForm, UpdateTransactionForm
+from doublea.models import PaymentMethod, Store, Transaction
+from doublea.transactions.forms import NewTransactionForm, PurchaseForm, UpdateTransactionForm
 
 transactions = Blueprint('transactions', __name__)
 
@@ -49,3 +49,24 @@ def update_transaction(transaction_id):
         form.purchase_amount.data = purchase.amount
         form.purchase_gst.data = purchase.gst
     return render_template('update_transaction.html', form=form, legend="Update Transaction")
+
+@transactions.route('/market_sales/create_purchase', methods=['GET','POST'])
+@login_required
+def create_purchase():
+    form = NewTransactionForm()
+    stores = Store.query.order_by(Store.storename, Store.storelocation)
+    form.store_group_id.choices = [(st.storeid, f"{st.storename} - {st.storelocation}") for st in stores]
+    payments = PaymentMethod.query.all()
+    form.payment_group_id.choices =[(pmt.paymentmethodid, pmt.methodname) for pmt in payments]
+    if form.validate_on_submit():
+        purchase = Transaction(storeid=form.store_group_id.data, 
+                           transactionsdate=form.purchase_date.data,
+                           items=form.purchase_items.data,
+                           amount=form.purchase_amount.data,
+                           gst = form.purchase_gst.data,
+                           methodid=form.payment_group_id.data)
+        db.session.add(purchase)
+        db.session.commit()
+        flash('Your purchase has been created!', 'success')
+        return redirect(url_for('transactions.store_management'))
+    return render_template('create_purchase.html',tittle='New Purchase',form=form, legend='New Purchase')
