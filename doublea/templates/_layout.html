@@ -32,6 +32,15 @@
                                 <a class="nav-item nav-link" href="{{ url_for('transactions.store_purchases')}}">Purchases</a>
                                 <div class="btn-group dropend">
                                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Sales &amp; Transactions
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-dark bg-steel">
+                                        <li><a class="nav-item nav-link" href="{{ url_for('marketsales.create_sale')}}">New Sale</a></li>
+                                        <li><a class="nav-item nav-link" href="{{ url_for('transactions.create_purchase')}}">New Purchase</a></li>
+                                    </ul>
+                                </div>
+                                <div class="btn-group dropend">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         Database Maintenance
                                     </a>
                                     <ul class="dropdown-menu dropdown-menu-dark bg-steel">
@@ -72,7 +81,7 @@
                     </div>
                     <div class="col-4">
                         <div class="content-section">
-                            <h3>Our Sidebar</h3>
+                            <h3>Double-A Engraving Sidebar</h3>
                             <p class='text-muted'>You can put any information here you would like.</p>
                             <ul class="list-group">
                                 <li class="list-group-item list-group-item-light">Latest Sales</li>
