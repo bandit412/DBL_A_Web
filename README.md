@@ -5,6 +5,7 @@ Python/Flask Web Application
 This is a development project to recrete an ASP.NET web application in Python/Flask with a PostgreSQL database backend.
 
 ### Package List
+```
 Package           Version
 ----------------- -------
 bcrypt            5.0.0
@@ -33,8 +34,10 @@ typing_extensions 4.15.0
 virtualenv        21.2.0
 Werkzeug          3.1.6
 WTForms           3.2.1
+```
 
 ### Directory Tree
+```
 DBL_A_Web/
 ├── DBL_A_Transactions.sql
 ├── Dbl_A_Transactions_ERD
@@ -169,7 +172,7 @@ DBL_A_Web/
 │       └── utils.py
 ├── README.md
 └── run.py
-
+```
 
 ## Depoloyment
 Once the development is complete the task is to:
