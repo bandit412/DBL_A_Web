@@ -75,7 +75,7 @@ class PaymentMethod(db.Model):
 class Transaction(db.Model):
     __tablename__ = 'transactions'
     transactionsid = db.Column(db.Integer, primary_key=True)
-    transaction_date = db.Column(db.Date, nullable=False)
+    transactiondate = db.Column(db.Date, nullable=False)
     storeid = db.Column(db.Integer, db.ForeignKey('store.storeid'), nullable=False)
     items = db.Column(db.String(250), nullable=False)
     amount = db.Column(db.Numeric(8,2), nullable=False)
@@ -83,7 +83,7 @@ class Transaction(db.Model):
     paymentid = db.Column(db.Integer, db.ForeignKey('paymentmethod.paymentmethodid'), nullable=False)
 
     def __repr__(self):
-        return f"Transaction('{self.transaction_date}, {self.items}, {self.amount}, {self.gst}')"
+        return f"Transaction('{self.transactiondate}, {self.items}, {self.amount}, {self.gst}')"
     
 class MarketSales(db.Model):
     __tablename__ = 'marketsales'
