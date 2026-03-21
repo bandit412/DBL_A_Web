@@ -8,7 +8,7 @@
             {% for mkt in markets %}
                 <div class="row">
                     <div class="col">
-                        {{ mkt.market }}
+                        <a class="article-title" href="{{ url_for('markets.market', market_id=mkt.marketsid) }}">{{ mkt.market}}</a>
                     </div>
                 </div>
             {% endfor %}
