@@ -1,0 +1,41 @@
+{% extends "_layout.html" %}
+{% block content %}
+    <h1>Selected Market: {{ one_market.market }}</h1>
+    {% if market_sales %}
+        <div class="row">
+            <div class="col fw-bold">
+                Date
+            </div>
+            <div class="col fw-bold">
+                Description
+            </div>
+            <div class="col fw-bold text-end">
+                Amount
+            </div>
+        </div>
+        {% for sale in market_sales %}
+            <div class="row">
+                <div class="col">
+                    {{ sale.marketdate.strftime('%Y-%m-%d')}}
+                </div>
+                <div class="col">
+                    {{ sale.description }}
+                </div>
+                <div class="col text-end">
+                    {{ sale.amount }}
+                </div>
+            </div>
+        {% endfor %}
+        {% for page_num in market_sales.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+            {% if page_num %}
+                {% if market_sales.page == page_num %}
+                    <a class="btn btn-info mb-4 text-white" href="{{ url_for('markets.market', market_id=one_market.marketsid, page=page_num) }}">{{ page_num }}</a>
+                {% else %}
+                    <a class="btn btn-outline-info mb-4" href="{{ url_for('markets.market', market_id=one_market.marketsid, page=page_num) }}">{{ page_num }}</a>
+                {% endif %}
+            {% else %}
+                ...
+            {% endif %}
+    {% endfor %}
+    {% endif %}
+{% endblock content %}
