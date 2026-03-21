@@ -11,3 +11,6 @@ Once the development is complete the task is to:
 * setup the local server with a WSGI server
 * TEST TEST TEST
 
+## Maintenance
+After deployment the code will likley need to be refined and updated:
+* add new features
