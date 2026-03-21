@@ -8,12 +8,13 @@ class SalesForm(FlaskForm):
 
 class UpdateMarketSale(FlaskForm):
     description = StringField('Description')
-    sale_amount = StringField('Amoint')
+    sale_amount = StringField('Amount')
     submit = SubmitField("Update")
 
-class MarketSalesForm(FlaskForm):
-    market_group_id = SelectField('Market', coerc=int)
+class NewMarketSalesForm(FlaskForm):
+    market_group_id = SelectField('Market')
     market_date = DateField('Market Date', validators=[DataRequired()])
     amount = StringField('Amount', validators=[DataRequired()])
     description = StringField('Description', validators=[DataRequired()])
-    payment_group_id = SelectField('PaymentMethod', coerc=int)
+    payment_group_id = SelectField('PaymentMethod')
+    submit = SubmitField("New Sale")

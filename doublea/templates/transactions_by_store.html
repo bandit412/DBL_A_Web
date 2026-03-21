@@ -1,0 +1,29 @@
+{% extends "_layout.html" %}
+{% block content %}
+    <h1>Update Selected Purchase</h1>
+    
+    {% if purchases %}
+        <p>Total Purchases: {{ purchases.total }}</p>
+        {% for purchase in purchases %}
+                <span class="spanbold">{{ purchase.transactiondate }}</span>
+                <div class="row">
+                    <div class="row">
+                        <div class="col-5">
+                            {{ purchase.items }}
+                         </div>
+                        <div class="col-3 text-end">
+                            {{ purchase.amount }}
+                        </div>
+                        <div class="col-3 text-end">
+                            {{ purchase.gst }}
+                        </div>
+                        <div class="col-4">
+                            <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{{ url_for('transactions.update_transaction', transaction_id=purchase.transactionsid) }}">Update</a>
+                        </div>
+                    </div>
+                </div>
+  
+        {% endfor %}
+        
+    {% endif %}
+{% endblock content %}

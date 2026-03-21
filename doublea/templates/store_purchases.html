@@ -1,4 +1,16 @@
 {% extends "_layout.html" %}
 {% block content %}
     <h1>Purchases by Store</h1>
+        <form method="POST" action="{{ url_for('transactions.get_purchases') }}">
+        {{ form.hidden_tag() }}
+        <div class="form-group">
+            <select name="store_select" id="store_select">
+                <option value="0">Select a Store</option>
+                {% for st in stores %}
+                    <option value="{{ st.storeid }}">{{ st.storename }} ({{ st.storelocation }})</option>
+                {% endfor %}
+            </select>
+            {{ form.submit(class="btn btn-outline-info" )}}
+        </div>
+    </form>
 {% endblock content %}

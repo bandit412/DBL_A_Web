@@ -38,4 +38,4 @@ def market(market_id):
                            one_market=one_market,
                            market_sales=market_sales)
     else:
-        abort(403)
+        abort(401)

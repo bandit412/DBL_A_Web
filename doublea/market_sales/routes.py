@@ -1,17 +1,21 @@
 from flask import Blueprint, abort, flash, redirect, render_template, request, url_for
-from flask_login import login_required
+from flask_login import current_user, login_required
 
 from doublea import db
-from doublea.models import Market,MarketSales
-from doublea.market_sales.forms import SalesForm, UpdateMarketSale
+from doublea.models import Market,MarketSales, PaymentMethod
+from doublea.market_sales.forms import NewMarketSalesForm, SalesForm, UpdateMarketSale
 
 marketsales = Blueprint('marketsales', __name__)
 
 @marketsales.route("/market_sales")
+@login_required
 def market_sales():
-    markets = Market.query.order_by(Market.market)
-    form = SalesForm()
-    return render_template('market_sales.html', markets=markets,form=form)
+    if current_user.is_authenticated:
+        markets = Market.query.order_by(Market.market)
+        form = SalesForm()
+        return render_template('market_sales.html', markets=markets,form=form)
+    else:
+        abort(401)
 
 def get_selected_value():
     selected_value = request.form.get('market_select')   
@@ -43,4 +47,24 @@ def update_marketsale(marketsales_id):
     elif request.method == 'GET':
         form.description.data = market_sale.description
         form.sale_amount.data = market_sale.amount
-    return render_template('create_sale.html', form=form, legend="Update Sale")
+    return render_template('update_sale.html', form=form, legend="Update Sale")
+
+@marketsales.route('/market_sales/create_sale', methods=['GET','POST'])
+@login_required
+def create_sale():
+    form = NewMarketSalesForm()
+    markets = Market.query.all()
+    form.market_group_id.choices = [(mkt.marketsid, mkt.market) for mkt in markets]
+    payments = PaymentMethod.query.all()
+    form.payment_group_id.choices =[(pmt.paymentmethodid, pmt.methodname) for pmt in payments]
+    if form.validate_on_submit():
+        sale = MarketSales(marketid=form.market_group_id.data, 
+                           marketdate=form.market_date.data,
+                           amount=form.amount.data,
+                           description=form.description.data,
+                           methodid=form.payment_group_id.data)
+        db.session.add(sale)
+        db.session.commit()
+        flash('Your sale has been created!', 'success')
+        return redirect(url_for('marketsales.market_management'))
+    return render_template('create_sale.html',tittle='New Sale',form=form, legend='New Sale')
