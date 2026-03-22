@@ -17,9 +17,9 @@ def payment_management():
 def new_payment():
     form = PaymentForm()
     if form.validate_on_submit():
-        payment_new = PaymentMethod(methodname=form.name.data)
+        payment_new = PaymentMethod(methodname=form.methodname.data)
         db.session.add(payment_new)
         db.session.commit()
         flash('Your PaymentMethod has been created!', 'success')
-        return redirect(url_for('paymentmethods.payments'))
+        return redirect(url_for('paymentmethods.payment_management'))
     return render_template('new_payment.html',tittle='New Payment Method',form=form, legend='New Payment Method')
