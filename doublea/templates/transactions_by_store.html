@@ -3,7 +3,7 @@
     <h1>Update Selected Purchase</h1>
     
     {% if purchases %}
-        <p>Total Purchases: {{ purchases.total }}</p>
+        <p>Total Purchases: {{ purchases.count() }}</p>
         {% for purchase in purchases %}
                 <span class="spanbold">{{ purchase.transactiondate }}</span>
                 <div class="row">
