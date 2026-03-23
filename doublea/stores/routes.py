@@ -11,7 +11,7 @@ stores = Blueprint('stores', __name__)
 def store_management():
     page = request.args.get('page', 1, type=int)
     stores = Store.query.order_by(Store.storename, Store.storelocation).paginate(page=page, per_page=10)
-    return render_template('store_management.html', stores=stores)
+    return render_template('store_management.html', title='Stores', stores=stores)
 
 @stores.route('/store/new', methods=['GET','POST'])
 @login_required
@@ -23,7 +23,7 @@ def new_store():
         db.session.commit()
         flash('Your Store has been created!', 'success')
         return redirect(url_for('stores.store_management'))
-    return render_template('new_store.html',tittle='New Store',form=form, legend='New Store')
+    return render_template('new_store.html',title='New Store',form=form, legend='New Store')
 
 @stores.route("/store/<int:store_id>")
 @login_required
