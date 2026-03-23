@@ -43,66 +43,27 @@ DBL_A_Web/
 ├── Dbl_A_Transactions_ERD
 ├── doublea/
 │   ├── __init__.py
-│   ├── __init__.pyc
-│   ├── __pycache__/
-│   │   ├── __init__.cpython-312.pyc
-│   │   ├── __init__.cpython-314.pyc
-│   │   ├── config.cpython-312.pyc
-│   │   ├── config.cpython-314.pyc
-│   │   ├── models.cpython-312.pyc
-│   │   └── models.cpython-314.pyc
 │   ├── config.py
 │   ├── errors/
 │   │   ├── __init__.py
-│   │   ├── __pycache__/
-│   │   │   ├── __init__.cpython-312.pyc
-│   │   │   └── handlers.cpython-312.pyc
 │   │   └── handlers.py
 │   ├── events/
-│   │   ├── __pycache__/
-│   │   │   ├── forms.cpython-312.pyc
-│   │   │   └── routes.cpython-312.pyc
 │   │   ├── forms.py
 │   │   └── routes.py
 │   ├── main/
 │   │   ├── __init__.py
-│   │   ├── __pycache__/
-│   │   │   ├── __init__.cpython-312.pyc
-│   │   │   ├── __init__.cpython-314.pyc
-│   │   │   ├── forms.cpython-312.pyc
-│   │   │   ├── routes.cpython-312.pyc
-│   │   │   └── routes.cpython-314.pyc
 │   │   └── routes.py
 │   ├── market_sales/
 │   │   ├── __init__.py
-│   │   ├── __pycache__/
-│   │   │   ├── __init__.cpython-312.pyc
-│   │   │   ├── __init__.cpython-314.pyc
-│   │   │   ├── forms.cpython-312.pyc
-│   │   │   ├── forms.cpython-314.pyc
-│   │   │   ├── routes.cpython-312.pyc
-│   │   │   └── routes.cpython-314.pyc
 │   │   ├── forms.py
 │   │   └── routes.py
 │   ├── markets/
 │   │   ├── __init__.py
-│   │   ├── __pycache__/
-│   │   │   ├── __init__.cpython-312.pyc
-│   │   │   ├── __init__.cpython-314.pyc
-│   │   │   ├── forms.cpython-312.pyc
-│   │   │   ├── routes.cpython-312.pyc
-│   │   │   └── routes.cpython-314.pyc
 │   │   ├── forms.py
 │   │   └── routes.py
 │   ├── models.py
 │   ├── paymentmethods/
 │   │   ├── __init__.py
-│   │   ├── __pycache__/
-│   │   │   ├── __init__.cpython-312.pyc
-│   │   │   ├── __init__.cpython-314.pyc
-│   │   │   ├── forms.cpython-312.pyc
-│   │   │   ├── routes.cpython-312.pyc
-│   │   │   └── routes.cpython-314.pyc
 │   │   ├── forms.py
 │   │   └── routes.py
 │   ├── static/
@@ -124,12 +85,6 @@ DBL_A_Web/
 │   │       └── Dbl_A_Transactions_ERD.png
 │   ├── stores/
 │   │   ├── __init__.py
-│   │   ├── __pycache__/
-│   │   │   ├── __init__.cpython-312.pyc
-│   │   │   ├── __init__.cpython-314.pyc
-│   │   │   ├── forms.cpython-312.pyc
-│   │   │   ├── routes.cpython-312.pyc
-│   │   │   └── routes.cpython-314.pyc
 │   │   ├── forms.py
 │   │   └── routes.py
 │   ├── templates/
@@ -166,26 +121,10 @@ DBL_A_Web/
 │   │   └── update_transaction.html
 │   ├── transactions/
 │   │   ├── __init__.py
-│   │   ├── __pycache__/
-│   │   │   ├── __init__.cpython-312.pyc
-│   │   │   ├── __init__.cpython-314.pyc
-│   │   │   ├── forms.cpython-312.pyc
-│   │   │   ├── routes.cpython-312.pyc
-│   │   │   └── routes.cpython-314.pyc
 │   │   ├── forms.py
 │   │   └── routes.py
 │   └── users/
 │       ├── __init__.py
-│       ├── __pycache__/
-│       │   ├── __init__.cpython-312.pyc
-│       │   ├── __init__.cpython-314.pyc
-│       │   ├── forms.cpython-312.pyc
-│       │   ├── forms.cpython-314.pyc
-│       │   ├── routes.cpython-312.pyc
-│       │   ├── routes.cpython-314.pyc
-│       │   ├── utils.cpython-312.pyc
-│       │   └── utils.cpython-314.pyc
-│       ├── forms.py
 │       ├── routes.py
 │       └── utils.py
 ├── README.md
