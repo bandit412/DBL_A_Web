@@ -50,6 +50,7 @@
                                         <li><a class="nav-item nav-link" href="{{ url_for('stores.new_store') }}">New Store</a></li>
                                         <li><a class="nav-item nav-link" href="{{ url_for('paymentmethods.payment_management') }}">Payment Methods</a></li>
                                         <li><a class="nav-item nav-link" href="{{ url_for('paymentmethods.new_payment') }}">New Payment Method</a></li>
+                                        <li><a class="nav-item nav-link" href="{{ url_for('events.new_event') }}">New Event</a></li>
                                     </ul>
                                 </div>
                                 <a class="nav-item nav-link" href="{{ url_for('users.account') }}">Account</a>
@@ -86,8 +87,10 @@
                             <ul class="list-group">
                                 <li class="list-group-item list-group-item-light">Latest Sales</li>
                                 <li class="list-group-item list-group-item-light">Latest Purchases</li>
+                                <li class="list-group-item list-group-item-light">
+                                    <a class="nav-item nav-link" href="{{ url_for('events.events_management') }}">Events</a>
+                                </li>
                                 <li class="list-group-item list-group-item-light">Announcements</li>
-                                <li class="list-group-item list-group-item-light">etc</li>
                             </ul>
                         </div>
                     </div>

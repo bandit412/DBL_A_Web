@@ -1,5 +1,7 @@
-from flask import Blueprint, render_template, request
+import datetime
 
+from flask import Blueprint, render_template, request
+from doublea import db
 from doublea.models import Market, Store
 
 main = Blueprint('main', __name__)
@@ -15,3 +17,4 @@ def home():
 @main.route("/about")
 def about():
     return render_template('about.html', title='About')
+

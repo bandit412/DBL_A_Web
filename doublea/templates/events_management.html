@@ -1,0 +1,33 @@
+{% extends "_layout.html" %}
+{% block content %}
+    <h1>Events Page</h1>
+    {% for event in events %}
+        <div class="row">
+            <div class="col">
+                {{ event.eventtitle }}
+            </div>
+            <div class="col">
+                {{ event.event_location }}
+            </div>
+            <div class="col">
+                {{ event.eventdate }}
+            </div>
+            <div class="col">
+                {{ event.start_time }}
+            </div>
+            <div class="col">
+                {{ event.end_time }}
+            </div>
+            <div class="col">
+                {{ event.description }}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-4">
+                <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{{ url_for('events.update_event', event_id=event.eventid) }}">Update</a>
+            </div>
+        </div>
+        <hr>
+    {% endfor %}
+{% endblock content %}

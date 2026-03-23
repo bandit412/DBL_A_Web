@@ -1,3 +1,4 @@
+DROP TABLE CalEvent;
 DROP TABLE DB_User;
 DROP TABLE DB_User_Role;
 DROP TABLE MarketSales;
@@ -73,6 +74,19 @@ CREATE TABLE DB_User
 	RoleID			INT							NOT NULL
 		CONSTRAINT FK_DB_User_RoleID			REFERENCES DB_User_Role(RoleID),
 	CONSTRAINT PK_DB_User_UserID PRIMARY KEY(UserID)
+);
+
+CREATE TABLE CalEvent
+(
+	eventid			INTEGER			NOT NULL	GENERATED ALWAYS AS IDENTITY,
+	eventtitle		VARCHAR(30)		NOT NULL,
+	event_location	VARCHAR(30)		NOT NULL,
+	eventdate		DATE			NOT NULL,
+	start_time		TIME			NOT NULL,
+	end_time		TIME			NOT NULL,
+	description		VARCHAR(255)	NOT NULL,
+	CONSTRAINT PK_Calendar_eventid PRIMARY KEY (eventid),
+	CONSTRAINT CK_start_end_time CHECK (end_time > start_time
 );
 
 INSERT INTO DB_User_Role (Rolename)
