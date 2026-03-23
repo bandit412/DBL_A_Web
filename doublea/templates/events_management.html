@@ -22,5 +22,12 @@
                 {{ event.description }}
             </div>
         </div>
+
+        <div class="row">
+            <div class="col-4">
+                <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{{ url_for('events.update_event', event_id=event.eventid) }}">Update</a>
+            </div>
+        </div>
+        <hr>
     {% endfor %}
 {% endblock content %}
