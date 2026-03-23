@@ -33,7 +33,7 @@ def new_event():
         db.session.commit()
         flash('Your event has been created!', 'success')
         return redirect(url_for('events.events_management'))
-    return render_template('create_event.html', tittle='New Event', form=form, legend='New Event')
+    return render_template('create_event.html', title='New Event', form=form, legend='New Event')
 
 @events.route("/events_management/<int:event_id>/update", methods=['GET','POST'])
 @login_required
@@ -59,4 +59,4 @@ def update_event(event_id):
         form.end.data = event.end_time
         form.description.data = event.description
         form.submit.label.text = "Update Event"
-    return render_template('create_event.html', form=form, legend="Update Event")
+    return render_template('create_event.html', title='Update Event', form=form, legend="Update Event")

@@ -13,7 +13,7 @@ def store_purchases():
     if current_user.is_authenticated:
         stores= Store.query.order_by(Store.storename, Store.storelocation)
         form = PurchaseForm()
-        return render_template('store_purchases.html', stores=stores,form=form)
+        return render_template('store_purchases.html', title='Store Purchases', stores=stores,form=form)
     else:
         abort(401)
 
@@ -27,7 +27,7 @@ def get_purchases():
     selected_value = int(get_selected_value())
     selected_store = Store.query.get_or_404(selected_value)
     purchases = Transaction.query.filter_by(storeid=selected_value).order_by(Transaction.transactiondate.desc(), Transaction.transactionsid.desc()) #.paginate(page=page, per_page=10)
-    return render_template('transactions_by_store.html', purchases=purchases,selected_store=selected_store)
+    return render_template('transactions_by_store.html', title='Store Transactions', purchases=purchases,selected_store=selected_store)
 
 @transactions.route("/transactions_by_market/<int:transaction_id>/update", methods=['GET','POST'])
 @login_required
@@ -48,7 +48,7 @@ def update_transaction(transaction_id):
         form.items.data = purchase.items
         form.purchase_amount.data = purchase.amount
         form.purchase_gst.data = purchase.gst
-    return render_template('update_transaction.html', form=form, legend="Update Transaction")
+    return render_template('update_transaction.html', title='Update Transaction', form=form, legend="Update Transaction")
 
 @transactions.route('/market_sales/create_purchase', methods=['GET','POST'])
 @login_required
@@ -69,4 +69,4 @@ def create_purchase():
         db.session.commit()
         flash('Your purchase has been created!', 'success')
         return redirect(url_for('transactions.store_management'))
-    return render_template('create_purchase.html',tittle='New Purchase',form=form, legend='New Purchase')
+    return render_template('create_purchase.html',title='New Purchase',form=form, legend='New Purchase')

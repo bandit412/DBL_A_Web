@@ -11,7 +11,7 @@ markets = Blueprint('markets', __name__)
 def market_management():
     page = request.args.get('page', 1, type=int)
     markets = Market.query.order_by(Market.market).paginate(page=page, per_page=10)
-    return render_template('market_management.html', markets=markets)
+    return render_template('market_management.html', title='Markets', markets=markets)
 
 @markets.route('/market/new', methods=['GET','POST'])
 @login_required
@@ -23,7 +23,7 @@ def new_market():
         db.session.commit()
         flash('Your Market has been created!', 'success')
         return redirect(url_for('markets.market_management'))
-    return render_template('new_market.html',tittle='New Market',form=form, legend='New Market')
+    return render_template('new_market.html',title='New Market',form=form, legend='New Market')
 
 @markets.route("/market/<int:market_id>")
 @login_required

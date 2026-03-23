@@ -108,6 +108,14 @@ DBL_A_Web/
 │   ├── static/
 │   │   ├── css/
 │   │   │   └── main.css
+│   │   ├── icons/
+│   │   │   ├── apple-touch-icon.png
+│   │   │   ├── favicon-96x96.png
+│   │   │   ├── favicon.ico
+│   │   │   ├── favicon.svg
+│   │   │   ├── site.webmanifest
+│   │   │   ├── web-app-manifest-192x192.png
+│   │   │   └── web-app-manifest-512x512.png
 │   │   └── img/
 │   │       ├── 401_Sad_Face.png
 │   │       ├── 403_Sad_Face.png
@@ -182,7 +190,6 @@ DBL_A_Web/
 │       └── utils.py
 ├── README.md
 └── run.py
-
 ```
 
 ## Depoloyment

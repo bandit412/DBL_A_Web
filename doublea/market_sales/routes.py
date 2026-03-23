@@ -13,7 +13,7 @@ def market_sales():
     if current_user.is_authenticated:
         markets = Market.query.order_by(Market.market)
         form = SalesForm()
-        return render_template('market_sales.html', markets=markets,form=form)
+        return render_template('market_sales.html', title='Market Sales', markets=markets,form=form)
     else:
         abort(401)
 
@@ -28,7 +28,7 @@ def get_sales():
     selected_value = int(get_selected_value())
     selected_market = Market.query.get_or_404(selected_value)
     sales = MarketSales.query.filter_by(marketid=selected_value).order_by(MarketSales.marketdate.desc(), MarketSales.marketsalesid.desc()) #.paginate(page=page, per_page=10)
-    return render_template('market_sales_by_market.html', sales=sales,selected_market=selected_market)
+    return render_template('market_sales_by_market.html', title='Market Sales', sales=sales,selected_market=selected_market)
 
 @marketsales.route("/market_sales_by_market/<int:marketsales_id>/update", methods=['GET','POST'])
 @login_required
@@ -47,7 +47,7 @@ def update_marketsale(marketsales_id):
     elif request.method == 'GET':
         form.description.data = market_sale.description
         form.sale_amount.data = market_sale.amount
-    return render_template('update_sale.html', form=form, legend="Update Sale")
+    return render_template('update_sale.html', title='Update Sale', form=form, legend="Update Sale")
 
 @marketsales.route('/market_sales/create_sale', methods=['GET','POST'])
 @login_required
@@ -67,4 +67,4 @@ def create_sale():
         db.session.commit()
         flash('Your sale has been created!', 'success')
         return redirect(url_for('marketsales.market_management'))
-    return render_template('create_sale.html',tittle='New Sale',form=form, legend='New Sale')
+    return render_template('create_sale.html',title='New Sale',form=form, legend='New Sale')

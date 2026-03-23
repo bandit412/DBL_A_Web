@@ -10,7 +10,7 @@ paymentmethods = Blueprint('paymentmethods', __name__)
 @paymentmethods.route("/payment_management")
 def payment_management():
     payments = PaymentMethod.query.all()
-    return render_template('payments.html', payments=payments)
+    return render_template('payments.html', title='Payments', payments=payments)
 
 @paymentmethods.route('/payment/new', methods=['GET','POST'])
 @login_required
@@ -22,4 +22,4 @@ def new_payment():
         db.session.commit()
         flash('Your PaymentMethod has been created!', 'success')
         return redirect(url_for('paymentmethods.payment_management'))
-    return render_template('new_payment.html',tittle='New Payment Method',form=form, legend='New Payment Method')
+    return render_template('new_payment.html',title='New Payment Method', form=form, legend='New Payment Method')
