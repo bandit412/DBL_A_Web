@@ -58,11 +58,18 @@ DBL_A_Web/
 │   │   │   ├── __init__.cpython-312.pyc
 │   │   │   └── handlers.cpython-312.pyc
 │   │   └── handlers.py
+│   ├── events/
+│   │   ├── __pycache__/
+│   │   │   ├── forms.cpython-312.pyc
+│   │   │   └── routes.cpython-312.pyc
+│   │   ├── forms.py
+│   │   └── routes.py
 │   ├── main/
 │   │   ├── __init__.py
 │   │   ├── __pycache__/
 │   │   │   ├── __init__.cpython-312.pyc
 │   │   │   ├── __init__.cpython-314.pyc
+│   │   │   ├── forms.cpython-312.pyc
 │   │   │   ├── routes.cpython-312.pyc
 │   │   │   └── routes.cpython-314.pyc
 │   │   └── routes.py
@@ -105,7 +112,8 @@ DBL_A_Web/
 │   │       ├── 401_Sad_Face.png
 │   │       ├── 403_Sad_Face.png
 │   │       ├── 404_Sad_Face.png
-│   │       └── 500_Sad_Face.png
+│   │       ├── 500_Sad_Face.png
+│   │       └── Dbl_A_Transactions_ERD.png
 │   ├── stores/
 │   │   ├── __init__.py
 │   │   ├── __pycache__/
@@ -120,6 +128,7 @@ DBL_A_Web/
 │   │   ├── _layout.html
 │   │   ├── about.html
 │   │   ├── account.html
+│   │   ├── create_event.html
 │   │   ├── create_purchase.html
 │   │   ├── create_sale.html
 │   │   ├── errors/
@@ -127,6 +136,7 @@ DBL_A_Web/
 │   │   │   ├── 403.html
 │   │   │   ├── 404.html
 │   │   │   └── 500.html
+│   │   ├── events_management.html
 │   │   ├── home.html
 │   │   ├── login.html
 │   │   ├── market.html
@@ -172,6 +182,7 @@ DBL_A_Web/
 │       └── utils.py
 ├── README.md
 └── run.py
+
 ```
 
 ## Depoloyment
