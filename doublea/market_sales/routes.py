@@ -68,3 +68,13 @@ def create_sale():
         flash('Your sale has been created!', 'success')
         return redirect(url_for('marketsales.market_management'))
     return render_template('create_sale.html',title='New Sale',form=form, legend='New Sale')
+
+@marketsales.route('/market_sales/get_latest_sales', methods=['GET','POST'])
+def get_latest_sales():
+    sales = MarketSales.query.join(Market, Market.marketsid == MarketSales.marketid)\
+        .add_columns(MarketSales.marketdate,
+                     MarketSales.description,
+                     MarketSales.amount,
+                     Market.market)\
+        .order_by(MarketSales.marketdate.desc()).limit(5)
+    return render_template('latest_sales.html', title='Latest Sales', sales=sales)

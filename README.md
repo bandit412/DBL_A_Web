@@ -101,6 +101,8 @@ DBL_A_Web/
 │   │   │   └── 500.html
 │   │   ├── events_management.html
 │   │   ├── home.html
+|   |   ├── latest_sales.html
+|   |   ├── latest_transactions.html
 │   │   ├── login.html
 │   │   ├── market.html
 │   │   ├── market_management.html

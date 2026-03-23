@@ -1,6 +1,6 @@
 from flask import Blueprint, abort, flash, redirect, render_template, request, url_for
 from flask_login import current_user, login_required
-
+from sqlalchemy import join, select
 from doublea import db
 from doublea.models import PaymentMethod, Store, Transaction
 from doublea.transactions.forms import NewTransactionForm, PurchaseForm, UpdateTransactionForm
@@ -28,6 +28,19 @@ def get_purchases():
     selected_store = Store.query.get_or_404(selected_value)
     purchases = Transaction.query.filter_by(storeid=selected_value).order_by(Transaction.transactiondate.desc(), Transaction.transactionsid.desc()) #.paginate(page=page, per_page=10)
     return render_template('transactions_by_store.html', title='Store Transactions', purchases=purchases,selected_store=selected_store)
+
+@transactions.route('/transactions/get_latest_purchases', methods=['GET','POST'])
+def get_latest_purchases():
+    #purchases = Transaction.query.order_by(Transaction.transactiondate.desc(), Transaction.transactionsid.desc()).limit(5)
+    purchases = Transaction.query.join(Store, Store.storeid == Transaction.transactionsid)\
+        .add_columns(Transaction.transactiondate,
+                     Transaction.items,
+                     Transaction.amount,
+                     Transaction.gst,
+                     Store.storename,
+                     Store.storelocation)\
+        .order_by(Transaction.transactiondate.desc()).limit(5)
+    return render_template('latest_transactions.html', title='Latest Transactions', purchases=purchases)
 
 @transactions.route("/transactions_by_market/<int:transaction_id>/update", methods=['GET','POST'])
 @login_required
