@@ -1,6 +1,26 @@
 {% extends "_layout.html" %}
 {% block content %}
     <h1>Events Page</h1>
+    <div class="row">
+        <div class="col">
+            <span class="spanbold">Title</span>
+        </div>
+        <div class="col">
+            <span class="spanbold">Location</span>
+        </div>
+        <div class="col">
+            <span class="spanbold">Date</span>
+        </div>
+        <div class="col">
+            <span class="spanbold">Start</span>
+        </div>
+        <div class="col">
+            <span class="spanbold">End</span>
+        </div>
+        <div class="col">
+            <span class="spanbold">Description</span>
+        </div>
+    </div>
     {% for event in events %}
         <div class="row">
             <div class="col">
@@ -13,10 +33,10 @@
                 {{ event.eventdate }}
             </div>
             <div class="col">
-                {{ event.start_time }}
+                {{ event.start_time.strftime("%H:%M") }}
             </div>
             <div class="col">
-                {{ event.end_time }}
+                {{ event.end_time.strftime("%H:%M") }}
             </div>
             <div class="col">
                 {{ event.description }}

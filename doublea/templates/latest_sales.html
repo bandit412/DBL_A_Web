@@ -3,9 +3,19 @@
     <h1>Latest Sales</h1>
     
     {% if sales %}
-        
+        <div class="row">
+            <div class="col">
+                <span class="spanbold">Date &amp; Description</span>
+            </div>
+            <div class="col text-end">
+                <span class="spanbold">Amount</span>
+            </div>
+            <div class="col">
+                <span class="spanbold">Market</span>
+            </div>
+        </div>
         {% for sale in sales %}
-                <span class="spanbold">{{ sale.marketdate }}</span>
+                <span>{{ sale.marketdate }}</span>
                 <div class="row">
                     <div class="row">
                         <div class="col">

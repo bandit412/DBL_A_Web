@@ -90,13 +90,12 @@
                     <div class="col-4">
                         <div class="content-section">
                             <h3>Double-A Engraving Sidebar</h3>
-                            <p class='text-muted'>You can put any information here you would like.</p>
                             <ul class="list-group">
                                 <li class="list-group-item list-group-item-light">
-                                    <a class="nav-item nav-link" href="{{ url_for('marketsales.get_latest_sales') }}">Latest Sales</a>
+                                    <a class="nav-item nav-link" href="{{ url_for('marketsales.get_latest_sales') }}">Last 5 Sales</a>
                                 </li>
                                 <li class="list-group-item list-group-item-light">
-                                    <a class="nav-item nav-link" href="{{ url_for('transactions.get_latest_purchases') }}">Latest Purchases</a>
+                                    <a class="nav-item nav-link" href="{{ url_for('transactions.get_latest_purchases') }}">Last 5 Purchases</a>
                                 </li>
                                 <li class="list-group-item list-group-item-light">
                                     <a class="nav-item nav-link" href="{{ url_for('events.events_management') }}">Events</a>
