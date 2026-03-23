@@ -1,3 +1,5 @@
+from datetime import datetime, timezone
+
 from doublea import db, login_manager
 from flask_login import UserMixin
 from itsdangerous import URLSafeTimedSerializer as Serializer
@@ -96,3 +98,16 @@ class MarketSales(db.Model):
 
     def __repr__(self):
         return f"MarketSales('{self.market_date}, {self.desctiption}, {self.amount}')"
+
+class Event(db.Model):
+    __tablename__='calevent'
+    eventid = db.Column(db.Integer, primary_key=True)
+    eventtitle = db.Column(db.String(100), nullable=False)
+    event_location = db.Column(db.String(30), nullable=False)
+    eventdate = db.Column(db.Date, nullable=False)
+    start_time = db.Column(db.Time, nullable=False)
+    end_time = db.Column(db.Time, nullable=False)
+    description = db.Column(db.String(255), nullable=False)
+
+    def __rep__(self):
+        return f"Event('{self.eventtitle}, {self.event_location}, {self.eventdate}, {self.start_time}')"

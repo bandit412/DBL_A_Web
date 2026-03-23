@@ -25,6 +25,7 @@ def create_app(config=Config):
     from doublea.stores.routes import stores
     from doublea.transactions.routes import transactions
     from doublea.paymentmethods.routes import paymentmethods
+    from doublea.events.routes import events
     from doublea.errors.handlers import errors
 
     app.register_blueprint(main)
@@ -34,6 +35,7 @@ def create_app(config=Config):
     app.register_blueprint(stores)
     app.register_blueprint(transactions)
     app.register_blueprint(paymentmethods)
+    app.register_blueprint(events)
     app.register_blueprint(errors)
 
     return app
