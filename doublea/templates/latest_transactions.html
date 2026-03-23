@@ -1,0 +1,32 @@
+{% extends "_layout.html" %}
+{% block content %}
+    <h1>Latest Purchases</h1>
+    
+    {% if purchases %}
+        
+        {% for purchase in purchases %}
+                <span class="spanbold">{{ purchase.transactiondate }}</span>
+                <div class="row">
+                    <div class="row">
+                        <div class="col">
+                            {{ purchase.items }}
+                         </div>
+                        <div class="col text-end">
+                            {{ purchase.amount }}
+                        </div>
+                        <div class="col text-end">
+                            {{ purchase.gst }}
+                        </div>
+                        <div class="col text-end">
+                            {{ purchase.amount + purchase.gst }}
+                        </div>
+                        <div class="col">
+                            {{ purchase.storename }}<br>({{ purchase.storelocation }})
+                        </div>
+                    </div>
+                </div>
+            <hr>
+        {% endfor %}
+        
+    {% endif %}
+{% endblock content %}

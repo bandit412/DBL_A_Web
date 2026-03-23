@@ -1,0 +1,26 @@
+{% extends "_layout.html" %}
+{% block content %}
+    <h1>Latest Sales</h1>
+    
+    {% if sales %}
+        
+        {% for sale in sales %}
+                <span class="spanbold">{{ sale.marketdate }}</span>
+                <div class="row">
+                    <div class="row">
+                        <div class="col">
+                            {{ sale.description }}
+                         </div>
+                        <div class="col text-end">
+                            {{ sale.amount }}
+                        </div>
+                        <div class="col">
+                            {{ sale.market }}
+                        </div>
+                    </div>
+                </div>
+            <hr>
+        {% endfor %}
+        
+    {% endif %}
+{% endblock content %}
