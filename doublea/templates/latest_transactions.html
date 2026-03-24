@@ -3,9 +3,25 @@
     <h1>Latest Purchases</h1>
     
     {% if purchases %}
-        
+        <div class="row">
+            <div class="col">
+                <span class="spanbold">Date &amp; Items</span>
+            </div>
+            <div class="col text-end">
+                <span class="spanbold">Amount</span>
+            </div>
+            <div class="col text-end">
+                <span class="spanbold">GST</span>
+            </div>
+            <div class="col text-end">
+                <span class="spanbold">Total</span>
+            </div>
+            <div class="col">
+                <span class="spanbold">Store</span>
+            </div>
+        </div>
         {% for purchase in purchases %}
-                <span class="spanbold">{{ purchase.transactiondate }}</span>
+                <span>{{ purchase.transactiondate }}</span>
                 <div class="row">
                     <div class="row">
                         <div class="col">
